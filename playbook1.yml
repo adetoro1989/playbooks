@@ -1,0 +1,14 @@
+---
+- name: Install apache on the webserver group
+  hosts: web
+  become: true
+  tasks:
+    - name: Install apache
+      apt:
+        name: apache
+        state: latest
+    - name: Start apache
+      service:
+        name: apache
+        state: started
+        enabled: true
